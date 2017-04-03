@@ -5,18 +5,13 @@ def new
 end
 
 def create
-  
 @todo = Todo.new(todo_params)
-  
+ 
 if @todo.save
-    
   flash[:notice] = "Todo was created successfully!"
   redirect_to todo_path(@todo)
-    
 else
-    
   render 'new'
-  
 end  
 end
 
@@ -37,6 +32,12 @@ def update
     render "edit"
   end
 end
+
+def index
+  @todos = Todo.all
+end
+
+
 
 
 private
